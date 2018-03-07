@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-sm-7  custom-row jumbotron">
+
+    <form class="form-horizontal" 
+     (ngSubmit)="onFormSubmit()">
+
+      <fieldset>
+        <legend>SignUp</legend>
+
+        
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2
+              control-label">Email</label>
+
+          <div class="col-lg-7">
+            <input type="text" class="form-control" id="inputEmail" formControlName="email" placeholder="Email">
+          </div>
+
+          
+          <div *ngIf="signupForm.controls.email.invalid && signupForm.controls.email.touched" class="col-sm-3 text-danger">
+
+            <div *ngIf="signupForm.controls.email.errors?.required">
+              Email field can't be blank
+            </div>
+
+            <div *ngIf="signupForm.controls.email.errors?.pattern">
+              The email id doesn't seem right
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2
+              control-label">Mobile</label>
+
+          <div class="col-lg-7">
+            <input type="text" class="form-control" id="inputMobile" formControlName="mobile" placeholder="Mobile">
+          </div>
+
+        
+          <div *ngIf="signupForm.controls.mobile.invalid && signupForm.controls.mobile.touched" class="col-sm-3 text-danger">
+
+            <div *ngIf="signupForm.controls.mobile.errors?.required">
+              Mobile can't be blank
+            </div>
+
+
+          </div>
+        </div>
+
+       
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2
+                control-label">Name</label>
+
+          <div class="col-lg-7">
+            <input type="text" class="form-control" id="inputMobile" formControlName="name" placeholder="Name">
+          </div>
+
+         
+          <div *ngIf="signupForm.controls.name.invalid && signupForm.controls.name.touched" class="col-sm-3 text-danger">
+
+            <div *ngIf="signupForm.controls.name.errors?.required">
+              Name can't be blank
+            </div>
+
+
+          </div>
+        </div>
+
+
+
+       
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="submit" [disabled]="!signupForm.valid" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <!--- Log the FormGroup values to see if the binding is working -->
+
+  </div>
+</div>
